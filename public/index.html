@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagamento</title>
+</head>
+<body>
+
+    <h1>Meu produto</h1>
+
+    <button id="pagar">
+        Comprar
+    </button>
+
+    <script>
+        document.getElementById("pagar").addEventListener("click", async () => {
+
+            const resposta = await fetch("/criar-pagamento", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const dados = await resposta.json();
+
+            console.log(dados);
+
+            if (dados.init_point) {
+                window.location.href = dados.init_point;
+            } else {
+                alert("Erro ao criar pagamento");
+            }
+        });
+    </script>
+
+</body>
+</html>
