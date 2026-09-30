@@ -1,4 +1,4 @@
 # Token-Vendas
 ---
-##Venda de fichas com integração do mercado pago
+## Venda de fichas com integração do mercado pago
 - valor fixo de R$8.00
